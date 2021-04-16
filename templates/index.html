@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <style>
+        .info {
+            color: deepskyblue;
+        }
+        .warning {
+            color: orange;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+{# messages = [(category, message),(category, message),]#}
+{# 声明变量的代码块 get_flashed_messages 模板自带 获取闪现消息 利用分类设置格式#}
+{% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+        <ul>
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+{# 可有针对性的获取对应类型的闪现消息 error类型#}
+{% with messages = get_flashed_messages(category_filter=["error"]) %}
+    {% if messages %}
+        <ul>
+            {% for  message in messages %}
+                {{ message }}
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+{# 获取闪现数据链接点击后无内容 #}
+<a href="{{ url_for('test') }}">获取闪现数据</a>
+</body>
+</html>

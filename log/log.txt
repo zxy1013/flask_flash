@@ -1,0 +1,4 @@
+2021-04-15 18:27:57,275 - app - ERROR - 这个是一个error测试
+2021-04-15 18:27:57,275 - app - WARNING - 这个是一个warning测试
+2021-04-15 18:27:59,449 - app - WARNING - logging对首页的警告！！！！
+2021-04-15 18:27:59,449 - app - WARNING - app自带logger对首页的警告。。。。
